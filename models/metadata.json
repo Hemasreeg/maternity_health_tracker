@@ -1,0 +1,43 @@
+{
+    "best_model": "Logistic Regression",
+    "test_accuracy": 0.95,
+    "roc_auc": 0.95703125,
+    "feature_names": [
+        "age",
+        "pre_pregnancy_bmi",
+        "gestational_age_weeks",
+        "blood_pressure_systolic",
+        "blood_pressure_diastolic",
+        "hemoglobin_level",
+        "number_of_prenatal_visits",
+        "has_diabetes",
+        "has_hypertension",
+        "smoking_status",
+        "alcohol_consumption",
+        "education_level",
+        "household_income",
+        "iron_supplementation"
+    ],
+    "categorical_features": [
+        "smoking_status",
+        "alcohol_consumption",
+        "education_level"
+    ],
+    "numeric_features": [
+        "age",
+        "pre_pregnancy_bmi",
+        "gestational_age_weeks",
+        "blood_pressure_systolic",
+        "blood_pressure_diastolic",
+        "hemoglobin_level",
+        "number_of_prenatal_visits",
+        "has_diabetes",
+        "has_hypertension",
+        "household_income",
+        "iron_supplementation"
+    ],
+    "target_classes": [
+        "Low",
+        "Normal"
+    ]
+}

@@ -1,0 +1,318 @@
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  font-family: inherit;
+  transition: all 0.3s ease;
+}
+
+input, select, textarea {
+  font-family: inherit;
+  transition: all 0.3s ease;
+}
+
+/* Animations */
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes buttonHover {
+  0% {
+    transform: translateY(0);
+    box-shadow: 0 4px 15px rgba(217, 70, 239, 0.4);
+  }
+  100% {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(217, 70, 239, 0.6);
+  }
+}
+
+/* Form Container */
+.auth-container {
+  animation: slideInUp 0.6s ease;
+}
+
+/* Cards */
+.card {
+  animation: slideInUp 0.5s ease;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Buttons */
+.btn-primary {
+  animation: fadeIn 0.6s ease 0.3s both;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  animation: buttonHover 0.3s ease;
+}
+
+.btn-primary:active {
+  transform: scale(0.98);
+}
+
+/* Inputs */
+input:focus,
+select:focus,
+textarea:focus {
+  animation: pulse 0.4s ease;
+  outline: none;
+}
+
+/* Labels */
+label {
+  animation: slideInDown 0.5s ease;
+}
+
+/* Error Messages */
+.error-message {
+  animation: slideInDown 0.3s ease;
+  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a52 100%);
+}
+
+/* Success Messages */
+.success-message {
+  animation: slideInDown 0.3s ease;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+}
+
+/* Navbar */
+.navbar {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  animation: slideInDown 0.5s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Grid Cards */
+.grid-card {
+  animation: slideInUp 0.5s ease;
+  transition: all 0.3s ease;
+}
+
+.grid-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.grid-card:hover .card-icon {
+  animation: floatUp 0.6s ease infinite;
+}
+
+.card-icon {
+  font-size: 40px;
+  transition: all 0.3s ease;
+}
+
+/* Links */
+a.link {
+  color: #d946ef;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+a.link:hover {
+  color: #ec4899;
+  text-decoration: underline;
+}
+
+/* Spinner */
+.spinner {
+  animation: floatUp 0.8s ease infinite;
+}
+
+/* Loading State */
+button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Modal */
+.modal-overlay {
+  animation: fadeIn 0.3s ease;
+}
+
+.modal-content {
+  animation: slideInUp 0.4s ease;
+}
+
+/* Doctor Cards */
+.doctor-card {
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  animation: slideInUp 0.5s ease;
+  transition: all 0.3s ease;
+}
+
+.doctor-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(102, 126, 234, 0.3);
+}
+
+.doctor-card .rating {
+  animation: fadeIn 0.6s ease 0.2s both;
+}
+
+/* Health Assessment Form */
+.checkbox-group {
+  animation: slideInUp 0.5s ease;
+  transition: all 0.3s ease;
+}
+
+.checkbox-group:hover {
+  transform: translateX(5px);
+}
+
+.checkbox-group input[type="checkbox"] {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.checkbox-group input[type="checkbox"]:checked {
+  animation: pulse 0.3s ease;
+}
+
+/* Result Box */
+.result-box {
+  animation: slideInUp 0.5s ease;
+  border-left: 5px solid;
+}
+
+/* Dashboard Stats */
+.stat-card {
+  animation: slideInUp 0.5s ease;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+}
+
+.stat-number {
+  animation: slideInUp 0.6s ease 0.2s both;
+  font-size: 36px;
+  font-weight: bold;
+}
+
+/* Page Transitions */
+.page-enter {
+  animation: slideInUp 0.4s ease;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .card {
+    animation: slideInUp 0.4s ease;
+  }
+  
+  .grid-card {
+    animation: slideInUp 0.4s ease;
+  }
+}
+
+/* Gradients */
+.gradient-purple {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.gradient-pink {
+  background: linear-gradient(135deg, #ec4899 0%, #d946ef 100%);
+}
+
+.gradient-green {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+}
+
+/* Text Gradients */
+.text-gradient {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
