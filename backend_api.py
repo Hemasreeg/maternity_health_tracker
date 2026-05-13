@@ -16,8 +16,17 @@ import json
 # Load environment variables
 load_dotenv()
 
+# Determine paths for serving React build
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+REACT_BUILD_PATH = os.path.join(BASE_DIR, 'maternal-health-frontend', 'build')
+
 # Initialize Flask app
-app = Flask(__name__)
+app = Flask(
+    __name__,
+    static_folder=os.path.join(REACT_BUILD_PATH, 'static') if os.path.exists(REACT_BUILD_PATH) else None,
+    static_url_path='/static',
+    template_folder=REACT_BUILD_PATH if os.path.exists(REACT_BUILD_PATH) else None
+)
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', 'maternal-health-secret-key-2024')
 app.config['JWT_SECRET_KEY'] = os.getenv('JWT_SECRET_KEY', 'jwt-secret-key-2024')
 app.config['JWT_ACCESS_TOKEN_EXPIRES'] = timedelta(days=30)
@@ -638,6 +647,39 @@ def documentation():
         }
     }
     return jsonify(docs), 200
+
+
+# ==================== REACT FRONTEND ROUTES ====================
+
+@app.route('/')
+def serve_index():
+    """Serve React index.html for frontend"""
+    index_path = os.path.join(REACT_BUILD_PATH, 'index.html')
+    if os.path.exists(index_path):
+        with open(index_path, 'r') as f:
+            return f.read()
+    return "Frontend not built. Run: cd maternal-health-frontend && npm run build", 404
+
+
+@app.route('/<path:path>')
+def serve_react(path):
+    """Catch-all route for React Router - serves index.html for non-API routes"""
+    # Don't serve API routes through this handler
+    if path.startswith('api/'):
+        return jsonify({'error': 'API endpoint not found'}), 404
+    
+    # Serve static files from build directory
+    file_path = os.path.join(REACT_BUILD_PATH, path)
+    if os.path.exists(file_path) and os.path.isfile(file_path):
+        return app.send_static_file(path)
+    
+    # For all other routes, serve index.html (React Router handling)
+    index_path = os.path.join(REACT_BUILD_PATH, 'index.html')
+    if os.path.exists(index_path):
+        with open(index_path, 'r') as f:
+            return f.read()
+    
+    return "Frontend not built. Run: cd maternal-health-frontend && npm run build", 404
 
 
 if __name__ == '__main__':
