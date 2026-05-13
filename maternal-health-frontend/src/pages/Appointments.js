@@ -55,24 +55,6 @@ export default function Appointments() {
   const completedAppointments = appointments.filter(apt => apt.status?.toLowerCase() === 'completed');
   const cancelledAppointments = appointments.filter(apt => apt.status?.toLowerCase() === 'cancelled');
 
-  const getStatusColor = (status) => {
-    switch(status?.toLowerCase()) {
-      case 'confirmed': return '#3b82f6';
-      case 'completed': return '#10b981';
-      case 'cancelled': return '#ef4444';
-      default: return '#6b7280';
-    }
-  };
-
-  const getStatusIcon = (status) => {
-    switch(status?.toLowerCase()) {
-      case 'confirmed': return '⏳';
-      case 'completed': return '✓✓';
-      case 'cancelled': return '✕';
-      default: return '•';
-    }
-  };
-
   return (
     <div style={styles.container}>
       <button onClick={() => navigate('/dashboard')} style={styles.backBtn}>
