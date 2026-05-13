@@ -258,10 +258,10 @@ def register():
     data = request.get_json()
     
     if not data or not data.get('email') or not data.get('password'):
-        return jsonify({'error': 'Email and password required'}), 400
+        return jsonify({'error': 'Email and password required', 'message': 'Email and password required'}), 400
     
     if data['email'] in users_db:
-        return jsonify({'error': 'User already exists'}), 409
+        return jsonify({'error': 'User already exists', 'message': 'User already exists'}), 409
     
     user = {
         'id': len(users_db) + 1,
@@ -293,12 +293,12 @@ def login():
     data = request.get_json()
     
     if not data or not data.get('email') or not data.get('password'):
-        return jsonify({'error': 'Email and password required'}), 400
+        return jsonify({'error': 'Email and password required', 'message': 'Email and password required'}), 400
     
     user = users_db.get(data['email'])
     
     if not user or not check_password_hash(user['password'], data['password']):
-        return jsonify({'error': 'Invalid credentials'}), 401
+        return jsonify({'error': 'Invalid credentials', 'message': 'Invalid credentials'}), 401
     
     access_token = create_access_token(identity=str(user['id']))
     

@@ -26,7 +26,7 @@ export const AuthProvider = ({ children }) => {
       setUser(response.data.user);
       return response.data;
     } catch (err) {
-      setError(err.response?.data?.message || 'Registration failed');
+      setError(err.response?.data?.message || err.response?.data?.error || 'Registration failed');
       throw err;
     }
   };
@@ -40,7 +40,7 @@ export const AuthProvider = ({ children }) => {
       setUser(response.data.user);
       return response.data;
     } catch (err) {
-      setError(err.response?.data?.message || 'Login failed');
+      setError(err.response?.data?.message || err.response?.data?.error || 'Login failed');
       throw err;
     }
   };

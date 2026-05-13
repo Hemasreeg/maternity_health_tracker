@@ -9,7 +9,7 @@ export default function FoodDelivery() {
     { name: 'Swiggy', logo: '🍔', desc: 'Quick food delivery', url: 'https://www.swiggy.com/' },
     { name: 'Blinkit', logo: '🛒', desc: 'Fast grocery and essentials delivery', url: 'https://blinkit.com/' },
     { name: 'Zepto', logo: '⚡', desc: 'Instant grocery delivery', url: 'https://www.zeptonow.com/' },
-    { name: 'Instamart', logo: '🥬', desc: 'Swiggy Instamart groceries and essentials', url: 'https://www.swiggy.com/instamart' },
+    { name: 'Instamart', logo: '🥬', desc: 'Swiggy Instamart groceries and essentials', url: 'https://www.instamart.com/' },
     { name: 'Local Caterers', logo: '🍱', desc: 'Home-cooked healthy meals', url: 'https://www.google.com/search?q=local+healthy+food+caterers+near+me' },
   ];
 

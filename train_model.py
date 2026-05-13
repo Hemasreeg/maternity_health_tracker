@@ -19,7 +19,7 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import classification_report, confusion_matrix, accuracy_score, roc_auc_score, roc_curve
 import matplotlib.pyplot as plt
 import seaborn as sns
-import pickle
+import pickle "C:\Users\G HEMASREE\.kaggle\kaggle.jsonC:\Users\G HEMASREE\.kaggle\kaggle.jsonC:\Users\G HEMASREE\.kaggle\kaggle.jsonC:\Users\G HEMASREE\.kaggle\kaggle.jsonC:\Users\G HEMASREE\.kaggle\kaggle.json"
 import json
 
 # Set style for visualizations
